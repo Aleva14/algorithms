@@ -37,7 +37,7 @@ def findSubstr(ref_hash, substr, pw, b, reference):
     m = len(substr)
     result = []
     n_col = 0
-    for i in range(0, len(ref_hash) - m):
+    for i in range(0, len(ref_hash) - m + 1):
         if getHash(ref_hash, i, i + m - 1, b)  == substr_hash * pw[i] % b:
             # Check to avoid possible collisions
             if reference[i:i + m] == substr:
@@ -48,7 +48,7 @@ def findSubstr(ref_hash, substr, pw, b, reference):
 
 
 if __name__ == "__main__":
-    data = open("test.txt", 'r')
+    data = open("test5.txt", 'r')
     data = data.readlines()
     reference = data[0].strip()
     substrs = {}
